@@ -6,28 +6,28 @@
     <title>Dangerous_Log</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        /* 기존 CSS 스타일은 그대로 유지 */
         body {
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
-            padding-top: 50px; /* 네비게이션 바의 높이만큼 여백 추가 */
+            padding-top: 50px;
         }
         .container {
             margin-top: 30px;
-            overflow-x: auto; /* 가로 스크롤을 추가하여 넘치는 부분은 스크롤로 처리합니다. */
+            overflow-x: auto;
         }
         table {
-            width: 120%; /* 테이블의 너비를 120%로 설정하여 약간 더 넓게 만듭니다. */
+            width: 120%;
             border-collapse: collapse;
             border-spacing: 0;
             border: 1px solid #dee2e6;
-            font-size: 0.8em; /* 추가: 글자 크기 조정 */
+            font-size: 0.8em;
         }
-
         th, td {
             padding: 0.75rem;
             vertical-align: top;
             border-top: 1px solid #dee2e6;
-            word-wrap: normal; /* 텍스트가 길어도 자동으로 줄 바꿈되지 않도록 설정 */
+            word-wrap: normal;
         }
         thead th {
             vertical-align: bottom;
@@ -39,11 +39,27 @@
         tbody tr:nth-of-type(even) {
             background-color: #f8f9fa;
         }
+
+        /* 검색 입력 상자 스타일링 */
+        #searchInput {
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        #searchInput:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <!-- 네비게이션 바를 화면 위에 고정 -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">로그 관리 - 위험 로그</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -51,7 +67,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          
             <li class="nav-item">
                 <a class="nav-link" href="#">패턴 로그</a>
             </li>
@@ -78,7 +93,8 @@
 </nav>
 
 <div class="container">
-    <table>
+    <input type="text" id="searchInput" class="form-control mb-3" placeholder="검색어를 입력하세요...">
+    <table id="logTable">
         <thead>
             <tr>
                 <th>No</th>
@@ -94,7 +110,6 @@
                 <th>패턴</th>
                 <th>전체패킷</th>
                 <th>정책내용</th>
-                <!-- 새로운 열 추가 -->
                 <th>아이피</th>
                 <th>포트</th>
                 <th>정책 번호</th>
@@ -115,7 +130,6 @@
                 <td>패턴 값</td>
                 <td>탐지된 전체 패킷 값</td>
                 <td>정책 내용 값</td>
-                <!-- 새로운 열 값 -->
                 <td>아이피 값</td>
                 <td>포트 값</td>
                 <td>정책 번호 값</td>
@@ -124,6 +138,28 @@
         </tbody>
     </table>
 </div>
+
+<!-- JavaScript로 검색 기능 추가 -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById("searchInput");
+        const logTable = document.getElementById("logTable").getElementsByTagName("tbody")[0];
+        const rows = logTable.getElementsByTagName("tr");
+
+        searchInput.addEventListener("keyup", function(event) {
+            const searchText = event.target.value.toLowerCase();
+
+            Array.from(rows).forEach(function(row) {
+                const textContent = row.textContent.toLowerCase();
+                if (textContent.includes(searchText)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

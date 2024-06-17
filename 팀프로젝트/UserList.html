@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .form-control {
+            border-radius: 20px;
+        }
+        .user-list-item {
+            list-style-type: none;
+            padding: 10px;
+            border-bottom: 1px solid #dee2e6;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .user-list-item:last-child {
+            border-bottom: none;
+        }
+        .user-list-item:hover {
+            background-color: #e9ecef;
+        }
+        .btn-custom {
+            border-radius: 25px;
+            width: 120px;
+        }
+        /* Improved body section design */
+        .body-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search-section {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .user-list {
+            width: 100%;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+        }
+        .btn-section {
+            margin-top: 20px;
+        }
+
+        /* Apply btn-custom styles to btn-delete */
+        .btn-delete {
+            border-radius: 25px;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">사용자 관리</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">로그 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">정책 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">관리자</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">홈</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">로그아웃</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="body-section">
+                        <h5 class="card-title mb-4">User List</h5>
+                        
+                        <!-- Search Section -->
+                        <div class="input-group mb-3 search-section">
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search...">
+                        </div>
+                        
+                        <!-- User List Section -->
+                        <div class="user-list">
+                            <ul id="userList" class="list-unstyled">
+                                <li class="user-list-item">User 1</li>
+                                <li class="user-list-item">User 2</li>
+                                <li class="user-list-item">User 3</li>
+                                <!-- Additional users can be added dynamically or statically -->
+                            </ul>
+                        </div>
+                        
+                        <!-- Button Section -->
+                        <div class="btn-section">
+                            <a href="#" class="btn btn-primary btn-custom">Register</a>
+                            <a href="#" class="btn btn-danger btn-delete btn-custom">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script>
+    // JavaScript for searching users
+    document.getElementById("searchInput").addEventListener("input", function() {
+        var searchValue = this.value.toLowerCase();
+        var userList = document.getElementById("userList");
+        var users = userList.getElementsByClassName("user-list-item");
+        for (var i = 0; i < users.length; i++) {
+            var userName = users[i].innerText.toLowerCase();
+            if (userName.includes(searchValue)) {
+                users[i].style.display = "";
+            } else {
+                users[i].style.display = "none";
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
