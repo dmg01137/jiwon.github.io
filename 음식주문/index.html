@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>한식 레스토랑</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>한식 레스토랑</h1>
+      <nav>
+        <ul>
+          <li><a href="#menu">메뉴</a></li>
+          <li><a href="#about">소개</a></li>
+          <li><a href="#contact">연락</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="container">
+      <h2>한식 요리의 정통 맛을 경험하세요</h2>
+      <a href="#menu" class="btn">오늘의 메뉴 보기</a>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="container">
+      <h2>오늘의 메뉴</h2>
+      <div class="menu-item" onclick="addToCart('김치찌개', 8500)">
+        <img src="http://blogfiles.naver.net/MjAyNDAzMjFfNDAg/MDAxNzEwOTkyMDUwNzIy.mptnk4LN5hYNRkyQTZxCi08Ae8MWZGXmjQrgV6BTTdgg.PytnxQ7L-BaE1DLJUxjZDgBvTigsmzNf_RTMAr5TZlUg.JPEG/%B7%F9%BC%F6%BF%B5%B1%E8%C4%A1%C2%EE%B0%B3-%BD%E6%B3%D7%C0%CF.jpg" alt="김치찌개">
+        <p>김치찌개 - 8,500원</p>
+      </div>
+      
+      <div class="menu-item" onclick="addToCart('된장찌개', 8000)">
+        <img src="http://shop1.phinf.naver.net/20230924_26/1695541358157xzlvG_PNG/42872265123215131_2142674053.png" alt="된장찌개">
+        <p>된장찌개 - 8,000원</p>
+      </div>
+      
+      <div class="menu-item" onclick="addToCart('부대찌개', 12000)">
+        <img src="http://blogfiles.naver.net/MjAyMzEyMTVfMTA5/MDAxNzAyNjE4MDU4NjY0.uG4rA5SkvE7D0yLbe5BSVnJ0M8IW6uBQd6W4U9yDS7kg.OhmHl_OdgST7bBh98nLFB9cRUdn4psY85_HWAwy04M4g.JPEG.foodbankstudio/link14954.jpg" alt="부대찌개">
+        <p>부대찌개 - 12,000원</p>
+      </div>
+      
+      <div class="menu-item" onclick="addToCart('라면', 9000)">
+        <img src="http://blogfiles.naver.net/MjAyMDAxMjJfMjI0/MDAxNTc5NjgwNDI4NTE3.ka13mIFQFtlGKKHnRX60qggB3177VixadYTDcEdeTGYg.XTZR2xhKmmkSt9_i5EdsumUCpBk1kggkTOXubWSRW6gg.JPEG.msinvestment/IMG_1260.JPG" alt="라면">
+        <p>라면 - 9,000원</p>
+      </div>
+      
+      <div class="menu-item" onclick="addToCart('순두부찌개', 8500)">
+        <img src="http://imgnews.naver.net/image/005/2023/04/18/2023041811512647825_1681786286_0018171650_20230418115408012.jpg" alt="순두부찌개">
+        <p>순두부찌개 - 8,500원</p>
+      </div>
+      
+   
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>우리 레스토랑에 대해</h2>
+      <p>우리 레스토랑은 한국 전통 요리를 최상의 재료와 정통 방식으로 제공합니다. 맛있는 음식과 함께 편안한 분위기를 즐겨보세요.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>연락처</h2>
+      <p>문의 사항이 있으시면 언제든지 연락주세요. 우리는 항상 당신의 소리에 귀 기울이고자 합니다.</p>
+      <p>전화: 123-456-7890</p>
+      <p>이메일: contact@example.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 한식 레스토랑. 모든 권리 보유.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

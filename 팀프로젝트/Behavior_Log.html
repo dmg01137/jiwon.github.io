@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavior_log</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            padding-top: 50px; /* 네비게이션 바의 높이만큼 여백 추가 */
+        }
+        .container {
+            margin-top: 30px;
+        }
+        table {
+    width: 100%;
+    max-width: 1500px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #dee2e6;
+    font-size: 0.75em; /* 추가: 글자 크기 조정 */
+}
+
+        th, td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+            word-wrap: normal; /* 텍스트가 길어도 자동으로 줄 바꿈되지 않도록 설정 */
+        }
+        thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+        tbody+tbody {
+            border-top: 2px solid #dee2e6;
+        }
+        tbody tr:nth-of-type(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <!-- 네비게이션 바를 화면 위에 고정 -->
+    <a class="navbar-brand" href="#">로그 관리 - 행동 로그</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+        
+            <li class="nav-item">
+                <a class="nav-link" href="#">패턴 로그</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">위험 로그</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">사용자 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">정책 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">관리자</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">홈</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">로그아웃</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>로그번호</th>
+                <th>탐지시간</th>
+                <th>전송 프로토콜</th>
+                <th>출발지 IP</th>
+                <th>도착지 IP</th>
+                <th>출발지 Port</th>
+                <th>도착지 Port</th>
+                <th>패킷 길이</th>
+                <th>유효기간</th>
+                <th>패턴</th>
+                <th>탐지된 전체 패킷</th>
+                <th>정책 내용</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>로그번호 값</td>
+                <td>탐지시간 값</td>
+                <td>전송 프로토콜 값</td>
+                <td>출발지 IP 값</td>
+                <td>도착지 IP 값</td>
+                <td>출발지 Port 값</td>
+                <td>도착지 Port 값</td>
+                <td>패킷 길이 값</td>
+                <td>데이터의 유효기간 값</td>
+                <td>패턴 값</td>
+                <td>탐지된 전체 패킷 값</td>
+                <td>정책 내용 값</td>
+            </tr>
+            <!-- 추가적인 로그 항목을 여기에 추가할 수 있습니다. -->
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

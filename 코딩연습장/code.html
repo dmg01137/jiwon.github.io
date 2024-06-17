@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeCraft</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<style>
+    body {
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        position: relative;
+    }
+    .header .username {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        font-size: 1rem;
+        font-weight: normal;
+        color: #fff;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .categories {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .category {
+        flex-basis: 48%;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .category-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #007bff;
+    }
+    .category-list {
+        list-style: none;
+        padding: 0;
+    }
+    .category-list-item {
+        margin-bottom: 10px;
+    }
+    .category-list-item a {
+        text-decoration: none;
+        color: #343a40;
+        transition: color 0.3s ease;
+    }
+    .category-list-item a:hover {
+        color: #007bff;
+    }
+</style>
+</head>
+<body>
+<div class="header">
+    CodeCraft
+    <span class="username">jiwon</span>
+</div>
+<div class="container">
+    <div class="categories">
+        <div class="category">
+            <div class="category-title">코드업</div>
+            <ul class="category-list">
+                <li class="category-list-item"><a href="1-10.html">1-10번</a></li>
+                <li class="category-list-item"><a href="11-20.html">11-20번</a></li>
+                <li class="category-list-item"><a href="21-30.html">21-30번</a></li>
+                <li class="category-list-item"><a href="31-40.html">31-40번</a></li>
+                <li class="category-list-item"><a href="11-20.html">41-50번</a></li>
+                <li class="category-list-item"><a href="11-20.html">51-60번</a></li>
+                <li class="category-list-item"><a href="11-20.html">61-70번</a></li>
+                <li class="category-list-item"><a href="11-20.html">71-80번</a></li>
+                <li class="category-list-item"><a href="11-20.html">81-90번</a></li>
+                <li class="category-list-item"><a href="11-20.html">91-100번</a></li>
+                <!-- 다른 범위의 문제 추가 -->
+            </ul>
+        </div>
+        <div class="category">
+            <div class="category-title">프로그래머스</div>
+            <ul class="category-list">
+                <li class="category-list-item"><a href="#programmers-1-10">1-10번</a></li>
+                <li class="category-list-item"><a href="#programmers-20-30">20-30번</a></li>
+                <li class="category-list-item"><a href="#programmers-30-40">30-40번</a></li>
+                <li class="category-list-item"><a href="#programmers-50-60">50-60번</a></li>
+                <!-- 다른 범위의 문제 추가 -->
+            </ul>
+        </div>
+    </div>
+    <!-- 여기에 코드 블록 없이 목차만 추가 -->
+</div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeCraft</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<style>
+    body {
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+    .container {
+        display: flex;
+        max-width: 1200px;
+        margin: 20px auto;
+        overflow-x: auto;
+    }
+    .code-block {
+        flex-basis: 50%;
+        padding: 20px;
+        white-space: pre-wrap;
+    }
+    .memo {
+        flex-basis: 50%;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+    }
+    .code-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .code {
+        margin-bottom: 5px;
+    }
+    .back-to-home {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .memo-textarea {
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-family: monospace;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+<div class="header">CodeCraft</div>
+<div class="container">
+    <div class="code-block">
+        <div class="code">
+            <div class="code-block">
+                <div class="code">
+                    <div class="code">
+                        <div class="code-title">1021. 단어 1개 입력받아 그대로 출력하기</div>
+                        <pre>#include &lt;iostream&gt;
+                    using namespace std;
+                    
+                    int main(){
+                        string s;
+                        cin&gt;&gt;s;
+                        cout&lt;&lt;s;
+                        return 0;
+                    }</pre>
+                    </div>
+                    
+                    <div class="code">
+                        <div class="code-title">1022. 문장 1개 입력받아 그대로 출력하기</div>
+                        <pre>#include &lt;iostream&gt;
+                    using namespace std;
+                    
+                    int main(){
+                        string s;
+                        getline(cin, s);
+                        cout&lt;&lt;s;
+                        return 0;
+                    }</pre>
+                    </div>
+                    
+                    <div class="code">
+                        <div class="code-title">1023. 실수 1개 입력받아 부분별로 출력하기</div>
+                        <pre>#include &lt;iostream&gt;
+                    using namespace std;
+                    
+                    int main(){
+                        int a, b;
+                        scanf("%d.%d", &a, &b);
+                        cout&lt;&lt;a&lt;&lt;endl;
+                        cout&lt;&lt;b;
+                        return 0;
+                    }</pre>
+                    </div>
+                    
+                    <div class="code">
+                        <div class="code-title">1024. 단어 1개 입력받아 나누어 출력하기</div>
+                        <pre>#include &lt;iostream&gt;
+                    using namespace std;
+                    
+                    int main(){
+                        string s;
+                        cin&gt;&gt;s;
+                        for(unsigned int i=0; i&lt;s.length(); i++)
+                            cout&lt;&lt;"\'"<<s[i]<<"\'"<<endl;
+                        return 0;
+                    }</pre>
+                    </div>
+                
+                    <div class="code">
+                        <div class="code-title">1025. 정수 1개 입력받아 나누어 출력하기</div>
+                        <pre>#include &lt;iostream&gt;
+                    using namespace std;
+                    
+                    int main(){
+                        int a,b,c,d,e;
+                        scanf("%1d%1d%1d%1d%1d", &a, &b, &c, &d, &e);
+                        printf("[%d]\n", a*10000);
+                        printf("[%d]\n", b*1000);
+                        printf("[%d]\n", c*100);
+                        printf("[%d]\n", d*10);
+                        printf("[%d]\n", e);
+                        return 0;
+                    }</pre>
+                    </div>
+                    
+                    <div class="code">
+                        <div class="code-title">1026. 시분초 입력받아 분만 출력하기</div>
+                        <pre>#include &lt;iostream&gt;
+                    using namespace std;
+                    
+                    int main(){
+                        int h, m, s;
+                        scanf("%d:%d:%d", &h, &m, &s);
+                        cout&lt;&lt;m;
+                        return 0;
+                    }</pre>
+                    </div>
+                    
+                    <div class="code">
+                        <div class="code-title">1027. 년월일 입력받아 형식바꿔 출력하기</div>
+                        <pre>#include &lt;iostream&gt;
+                    using namespace std;
+                    
+                    int main(){
+                        int y, m, d;
+                        scanf("%04d.%02d.%02d", &y, &m, &d);
+                        printf("%02d-%02d-%04d", d, m, y);
+                        return 0;
+                    }</pre>
+                    </div>
+                    
+                    <div class="code">
+                        <div class="code-title">1028. 정수 1개 입력받아 그대로 출력하기2</div>
+                        <pre>#include &lt;iostream&gt;
+                    using namespace std;
+                    
+                    int main(){
+                        unsigned int n;
+                        cin&gt;&gt;n;
+                        cout&lt;&lt;n;
+                        return 0;
+                    }</pre>
+                    </div>
+                    
+                    <div class="code">
+                        <div class="code-title">1029. 실수 1개 입력받아 그대로 출력하기2</div>
+                        <pre>#include &lt;iostream&gt;
+                    using namespace std;
+                    
+                    int main(){
+                        double f;
+                        cin&gt;&gt;f;
+                        cout&lt;&lt;fixed;
+                        cout.precision(11);
+                        cout&lt;&lt;f;
+                        return 0;
+                    }</pre>
+                    </div>
+                    
+                    <div class="code">
+                        <div class="code-title">1030. 정수 1개 입력받아 그대로 출력하기3</div>
+                        <pre>#include &lt;iostream&gt;
+                    using namespace std;
+                    
+                    int main(){
+                        long long n;
+                        cin&gt;&gt;n;
+                        cout&lt;&lt;n;
+                        return 0;
+                    }</pre>
+                    </div>
+                    </pre>
+</div>
+
+        <!-- 다른 코드 블록 추가 -->
+        </div>
+    </div>
+</div>
+
+<div class="memo">
+    <textarea class="memo-textarea" placeholder="코드를 작성하세요..."></textarea>
+</div>
+</div>
+
+<a href="code.html" class="back-to-home">home</a>
+</body>
+</html>

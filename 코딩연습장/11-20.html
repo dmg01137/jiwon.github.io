@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeCraft</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<style>
+    body {
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+    .container {
+        display: flex;
+        max-width: 1200px;
+        margin: 20px auto;
+        overflow-x: auto;
+    }
+    .code-block {
+        flex-basis: 50%;
+        padding: 20px;
+        white-space: pre-wrap;
+    }
+    .memo {
+        flex-basis: 50%;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+    }
+    .code-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .code {
+        margin-bottom: 5px;
+    }
+    .back-to-home {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .memo-textarea {
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-family: monospace;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+<div class="header">CodeCraft</div>
+<div class="container">
+    <div class="code-block">
+        <div class="code">
+            <div class="code-block">
+                <div class="code">
+                    <div class="code-title">1011. 문자 1개 입력받아 그대로 출력하기</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                char c;
+                cin &gt;&gt; c;
+                cout &lt;&lt; c;
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1012. 실수 1개 입력받아 그대로 출력하기</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                float f;
+                cin &gt;&gt; f;
+                cout &lt;&lt; fixed; // 소수점 이하 고정
+                cout.precision(6); 
+                // fixed와 함께 쓰일 때 소수점 이하 개수를 6으로 설정
+                cout &lt;&lt; f;
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1013. 정수 2개 입력받아 그대로 출력하기</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                int a, b;
+                cin &gt;&gt; a &gt;&gt; b;
+                cout &lt;&lt; a &lt;&lt; " " &lt;&lt; b;
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1014. 문자 2개 입력받아 순서 바꿔 출력하기</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                char a, b;
+                cin &gt;&gt; a &gt;&gt; b;
+                cout &lt;&lt; b &lt;&lt; " " &lt;&lt; a;
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1015. 실수 입력받아 둘째 자리까지 출력하기</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                float f;
+                cin &gt;&gt; f;
+                cout &lt;&lt; fixed;
+                cout.precision(2);
+                cout &lt;&lt; f;
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1017. 정수 1개 입력받아 3번 출력하기</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                int n;
+                cin &gt;&gt; n;
+                cout &lt;&lt; n &lt;&lt; " " &lt;&lt; n &lt;&lt; " " &lt;&lt; n;
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1018. 시간 입력받아 그대로 출력하기</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                int h, m;
+                scanf("%d:%d", &h, &m);
+                printf("%d:%d", h, m);
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1019. 연월일 입력받아 그대로 출력하기</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                int y, m, d;
+                scanf("%d.%d.%d", &y, &m, &d);
+                printf("%04d.%02d.%02d", y, m, d);
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1020. 주민번호 입력받아 형태바꿔 출력하기</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                int a, b;
+                scanf("%d-%d", &a, &b);
+                printf("%06d%07d", a, b);
+                return 0;
+            }</pre>
+           </div>
+        <!-- 다른 코드 블록 추가 -->
+        </div>
+    </div>
+</div>
+
+<div class="memo">
+    <textarea class="memo-textarea" placeholder="코드를 작성하세요..."></textarea>
+</div>
+</div>
+
+<a href="code.html" class="back-to-home">home</a>
+</body>
+</html>

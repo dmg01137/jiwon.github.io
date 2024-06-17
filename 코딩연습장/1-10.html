@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeCraft</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<style>
+    body {
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+    .container {
+        display: flex;
+        max-width: 1200px;
+        margin: 20px auto;
+        overflow-x: auto;
+    }
+    .code-block {
+        flex-basis: 50%;
+        padding: 20px;
+        white-space: pre-wrap;
+    }
+    .memo {
+        flex-basis: 50%;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+    }
+    .code-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .code {
+        margin-bottom: 5px;
+    }
+    .back-to-home {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .memo-textarea {
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-family: monospace;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+<div class="header">CodeCraft</div>
+<div class="container">
+    <div class="code-block">
+        <div class="code">
+            <div class="code-title">1001. 출력하기 01</div>
+            <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    cout &lt;&lt; "Hello";
+    return 0;
+}</pre>
+        </div>
+        <div class="code">
+            <div class="code-block">
+                <div class="code">
+                    <div class="code-title">1002. 출력하기 02</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                cout &lt;&lt; "Hello World";
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1003. 출력하기 03</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                cout &lt;&lt; "Hello" &lt;&lt; endl;
+                cout &lt;&lt; "World";
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1004. 출력하기 04</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                cout &lt;&lt; "\'Hello\'";
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1005. 출력하기 05</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                cout &lt;&lt; "\"Hello\"";
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1006. 출력하기 06</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                cout &lt;&lt; "\"!@#$%^&*()\"";
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1007. 출력하기 07</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                cout &lt;&lt; "\"C:\\Download\\hello.cpp\"";
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1008. 출력하기 08</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                cout &lt;&lt; "\u250C\u252C\u2510" &lt;&lt; endl;
+                cout &lt;&lt; "\u251C\u253C\u2524" &lt;&lt; endl;
+                cout &lt;&lt; "\u2514\u2534\u2518";
+                return 0;
+            }</pre>
+                </div>
+                <div class="code">
+                    <div class="code-title">1010. 정수 1개 입력받아 그대로 출력하기</div>
+                    <pre>#include &lt;iostream&gt;
+            using namespace std;
+            
+            int main(){
+                int n;
+                cin &gt;&gt; n;
+                cout &lt;&lt; n;
+                return 0;
+            }</pre>
+        </div>
+        <!-- 다른 코드 블록 추가 -->
+        </div>
+    </div>
+</div>
+
+<div class="memo">
+    <textarea class="memo-textarea" placeholder="코드를 작성하세요..."></textarea>
+</div>
+</div>
+
+<a href="code.html" class="back-to-home">home</a>
+</body>
+</html>

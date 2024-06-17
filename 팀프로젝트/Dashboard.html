@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBMS Solution Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #001F3F; /* 바디 배경색을 시크한 색으로 변경 */
+            color: #fff; /* 텍스트 색을 흰색으로 변경 */
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .chart-container {
+            margin-bottom: 20px;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        /* 추가된 스타일 */
+        .table th,
+        .table td {
+            overflow-wrap: break-word;
+            color: #fff; /* 테이블 텍스트 색을 흰색으로 변경 */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Attack 상세 모니터링</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">사용자 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">로그 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">정책 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">관리자</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">로그아웃</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="chart-container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="text-center">IP 탐지 이벤트 Top 5</h4>
+                <canvas id="sourceIPChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-center">블랙리스트 Top 5</h4>
+                <canvas id="destinationIPChart"></canvas>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-5">
+                <h4 class="text-center">패턴 탐지 이벤트 Top 3</h4>
+                <canvas id="destinationPortChart"></canvas>
+            </div>
+            <div class="col-md-7">
+                <h4 class="text-center">일일 경보 발생 현황</h4>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">시간</th>
+                            <th class="text-center">로그소스 IP</th>
+                            <th class="text-center">출발 IP</th>
+                            <th class="text-center">출발 Port</th>
+                            <th class="text-center">목적 IP</th>
+                            <th class="text-center">목적 Port</th>
+                            <th class="text-center">총 평</th>
+                            <th class="text-center">건 수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add event details rows dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script>
+    // Sample data (replace with actual data)
+    var sourceIPData = {
+        labels: ['IP1', 'IP2', 'IP3', 'IP4', 'IP5'],
+        datasets: [{
+            label: 'Source IP Events',
+            data: [20, 15, 10, 8, 5],
+            backgroundColor: '#3498db', // 그래프의 색상 변경
+            borderWidth: 1
+        }]
+    };
+
+    var destinationIPData = {
+        labels: ['IP6', 'IP7', 'IP8', 'IP9', 'IP10'],
+        datasets: [{
+            label: 'BlackList IP Events',
+            data: [20, 15, 10, 8, 5],
+            backgroundColor: '#2ecc71', // 그래프의 색상 변경
+            borderWidth: 1
+        }]
+    };
+
+    var destinationPortData = {
+        labels: ['Pattern1', 'Pattern2', 'Pattern3'],
+        datasets: [{
+            label: 'Pattern Events',
+            data: [25, 20, 15],
+            backgroundColor: ['#f1c40f', '#e74c3c', '#3498db'], // 그래프의 색상 변경
+            borderWidth: 1
+        }]
+    };
+
+    // Initialize charts
+    var ctxSourceIP = document.getElementById('sourceIPChart').getContext('2d');
+    var sourceIPChart = new Chart(ctxSourceIP, {
+        type: 'bar',
+        data: sourceIPData,
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var ctxDestinationIP = document.getElementById('destinationIPChart').getContext('2d');
+    var destinationIPChart = new Chart(ctxDestinationIP, {
+        type: 'bar',
+        data: destinationIPData,
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var ctxDestinationPort = document.getElementById('destinationPortChart').getContext('2d');
+    var destinationPortChart = new Chart(ctxDestinationPort, {
+        type: 'doughnut',
+        data: destinationPortData
+    });
+</script>
+
+</body>
+</html>
