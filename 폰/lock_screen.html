@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lock Screen</title>
+    <link rel="stylesheet" type="text/css" href="styles_lock_screen.css">
+</head>
+<body>
+    <div class="lock-screen">
+        <div class="name">jiwon</div> <!-- jiwon 텍스트 추가 -->
+        <form class="lock-form" onsubmit="return checkPassword()">
+            <input type="password" id="password" placeholder="Enter password" autocomplete="off">
+            <input type="submit" value="Unlock">
+        </form>
+    </div>
+
+    <script src="script_lock_screen.js"></script>
+</body>
+</html>

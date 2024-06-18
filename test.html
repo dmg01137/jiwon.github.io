@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jiwon.com</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2c3e50; /* 변경된 배경색 */
+            color: #f8f9fa; /* 변경된 글자색 */
+        }
+        .header {
+            background-color: #f39c12; /* 변경된 헤더 배경색 */
+            color: white; /* 헤더 글자색 */
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .login-form {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #f39c12; /* 변경된 테두리 색 */
+            background-color: #f8f9fa; /* 변경된 배경색 */
+            border-radius: 5px;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .login-form input[type="submit"] {
+            width: 100%;
+            background-color: #f39c12; /* 변경된 버튼 배경색 */
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-form input[type="submit"]:hover {
+            background-color: #e67e22; /* 변경된 버튼 hover 배경색 */
+        }
+        .search-form {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .search-form input[type="text"] {
+            width: calc(100% - 40px);
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #fff;
+            background-color: transparent;
+            color: #fff;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-form input[type="text"]:focus {
+            width: 100%;
+        }
+        .search-form input[type="submit"] {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .search-form input[type="submit"]:hover {
+            color: #f8f9fa;
+        }
+        .logout-btn {
+            background-color: #2c3e50; /* 변경된 바디 배경색 */
+            color: #f8f9fa; /* 변경된 바디 글자색 */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .logout-btn:hover {
+            background-color: #34495e; /* 변경된 바디 배경색 */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>jiwon.com</h1>
+        <form class="search-form">
+            <input type="text" placeholder="검색어를 입력하세요">
+            <input type="submit" value="검색">
+        </form>
+        <button class="logout-btn">로그아웃</button>
+    </header>
+    <div class="container">
+        <h2>안녕하세요, jiwon.com 웹페이지에 오신 것을 환영합니다!</h2>
+        <p>로그인하여 추가 기능을 이용하세요.</p>
+        <form class="login-form" id="login-form">
+            <input type="text" placeholder="사용자명" required id="username">
+            <input type="password" placeholder="비밀번호" required id="password">
+            <input type="submit" value="로그인">
+        </form>
+        <p>아직 회원이 아니신가요? <a href="#">회원가입</a></p>
+    </div>
+
+    <script>
+        // JavaScript 코드 추가
+        // 여기에 JavaScript 코드를 추가하세요.
+    </script>
+</body>
+</html>

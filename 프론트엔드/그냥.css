@@ -1,0 +1,71 @@
+/* 그냥.css */
+
+/* Body 스타일링 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7; /* 배경색 지정 */
+  }
+  
+  /* Container 스타일링 */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center; /* 텍스트 중앙 정렬 */
+  }
+  
+  /* 텍스트 스타일링 */
+  .left-moving, .underlined, .up-down-moving {
+    margin-bottom: 20px; /* 각 요소 사이 여백 */
+    font-size: 36px; /* 폰트 크기 조정 */
+    color: #333; /* 텍스트 색상 지정 */
+  }
+  
+  /* 왼쪽으로 움직이는 효과 */
+  .left-moving {
+    animation: moveLeft 2s infinite alternate;
+  }
+  
+  /* 글자에 밑줄 */
+  .underlined {
+    text-decoration: underline;
+  }
+  
+  /* 위아래로 움직이는 효과 */
+  .up-down-moving {
+    animation: moveUpDown 2s infinite alternate;
+  }
+  
+  /* 반응형 디자인 */
+  @media screen and (max-width: 768px) {
+    /* 미디어 쿼리를 사용하여 작은 화면에 대한 스타일링 적용 */
+    .container {
+      padding: 20px; /* 컨테이너 패딩 추가 */
+    }
+    .left-moving, .underlined, .up-down-moving {
+      font-size: 24px; /* 폰트 크기 축소 */
+    }
+  }
+  
+  /* 애니메이션 효과 정의 */
+  @keyframes moveLeft {
+    from {
+      margin-left: 0px;
+    }
+    to {
+      margin-left: 50px;
+    }
+  }
+  
+  @keyframes moveUpDown {
+    from {
+      margin-top: 0px;
+    }
+    to {
+      margin-top: 20px;
+    }
+  }
+  

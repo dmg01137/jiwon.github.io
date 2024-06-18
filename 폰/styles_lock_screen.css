@@ -1,0 +1,61 @@
+/* styles_lock_screen.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #a0c4ff; /* 하늘색 배경 */
+}
+
+.lock-screen {
+    width: 300px; /* 화면의 너비 */
+    height: 600px; /* 화면의 높이 */
+    background: linear-gradient(to bottom, #f0f8ff, #b0e0e6); /* 화면 배경 */
+    border-radius: 40px; /* 화면의 둥근 모서리 */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.6); /* 화면의 그림자 효과 */
+}
+
+.lock-screen .lock-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lock-screen .lock-form input[type="password"] {
+    width: 200px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.lock-screen .lock-form input[type="submit"] {
+    width: 100px;
+    height: 40px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+.name {
+    position: absolute;
+    bottom: 10px; /* 폰 하단에 위치 */
+    width: 100%;
+    text-align: center;
+    font-size: 24px; /* 텍스트 크기 설정 */
+    font-weight: bold; /* 텍스트 두께 설정 */
+    color: #4CAF50; /* 버튼 색상과 맞추기 */
+}

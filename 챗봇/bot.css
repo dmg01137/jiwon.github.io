@@ -1,0 +1,74 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-container {
+  width: 400px;
+  height: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.chat-box {
+  border: none;
+  padding: 20px;
+  height: 75%;
+  overflow-y: auto;
+}
+
+.user-message {
+  margin: 10px 0;
+  background-color: #a9eec8; /* 연두색 말풍선 */
+  padding: 15px;
+  border-radius: 20px;
+  display: inline-block;
+  max-width: 70%;
+}
+
+.bot-message {
+  margin: 10px 0;
+  background-color: #a8d8eb; /* 하늘색 말풍선 */
+  padding: 15px;
+  border-radius: 20px;
+  display: inline-block;
+  max-width: 70%;
+}
+
+input[type="text"] {
+  width: calc(100% - 70px);
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f0f8ff;
+  margin-right: 10px;
+}
+
+button {
+  padding: 15px 30px;
+  background-color: #3cb371;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2e8b57;
+}
+
+.corner-text {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  color: #3cb371;
+  font-weight: bold;
+}

@@ -1,0 +1,81 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* 배경색 추가 */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* 포트폴리오 항목 스타일 */
+.portfolio-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.portfolio-item {
+    width: calc(33.33% - 20px);
+    background-color: #fff; /* 백그라운드 색을 흰색으로 변경 */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px; /* 테두리를 더 둥글게 만듦 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-item h3 {
+    background-color: #ff6b6b; /* 트렌디한 색상으로 변경 */
+    color: #fff; /* 흰색 텍스트로 변경 */
+    padding: 10px; /* 내부 여백 추가 */
+    border-radius: 5px; /* 둥근 테두리를 위해 border-radius 속성 추가 */
+    margin-bottom: 10px; /* 제목과 내용 사이 간격 추가 */
+}
+
+.portfolio-item p {
+    font-size: 16px;
+    color: #666; /* 텍스트 색상을 약간 어둡게 변경 */
+}

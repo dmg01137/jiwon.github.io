@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBMS Solution Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #001F3F;
+            color: #fff;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .chart-container {
+            margin-bottom: 20px;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        .table th,
+        .table td {
+            overflow-wrap: break-word;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Attack 상세 모니터링</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">로그 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">정책 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">사용자 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">관리자</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">홈</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">로그아웃</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="chart-container">
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="text-center">IP 탐지 이벤트 Top 5</h4>
+                <canvas id="sourceIPChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-center">블랙리스트 Top 5</h4>
+                <canvas id="destinationIPChart"></canvas>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-5">
+                <h4 class="text-center">패턴 탐지 이벤트 Top 3</h4>
+                <canvas id="destinationPortChart"></canvas>
+            </div>
+            <div class="col-md-7">
+                <h4 class="text-center">일일 경보 발생 현황</h4>
+                <!-- 검색 기능 추가된 테이블 -->
+                <input type="text" id="searchInput" class="form-control mb-3" placeholder="검색...">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">시간</th>
+                            <th class="text-center">로그소스 IP</th>
+                            <th class="text-center">출발 IP</th>
+                            <th class="text-center">출발 Port</th>
+                            <th class="text-center">목적 IP</th>
+                            <th class="text-center">목적 Port</th>
+                            <th class="text-center">총 평</th>
+                            <th class="text-center">건 수</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventTableBody">
+                        <!-- Add event details rows dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script>
+    // Sample data (replace with actual data)
+    var sourceIPData = {
+        labels: ['IP1', 'IP2', 'IP3', 'IP4', 'IP5'],
+        datasets: [{
+            label: 'Source IP Events',
+            data: [20, 15, 10, 8, 5],
+            backgroundColor: '#3498db',
+            borderWidth: 1
+        }]
+    };
+
+    var destinationIPData = {
+        labels: ['IP6', 'IP7', 'IP8', 'IP9', 'IP10'],
+        datasets: [{
+            label: 'BlackList IP Events',
+            data: [20, 15, 10, 8, 5],
+            backgroundColor: '#2ecc71',
+            borderWidth: 1
+        }]
+    };
+
+    var destinationPortData = {
+        labels: ['Pattern1', 'Pattern2', 'Pattern3'],
+        datasets: [{
+            label: 'Pattern Events',
+            data: [25, 20, 15],
+            backgroundColor: ['#f1c40f', '#e74c3c', '#3498db'],
+            borderWidth: 1
+        }]
+    };
+
+    // Sample event details data (to be populated dynamically)
+    var eventDetailsData = [
+        { time: '10:00', logSourceIP: '192.168.1.1', sourceIP: '10.0.0.1', sourcePort: '1234', destinationIP: '8.8.8.8', destinationPort: '80', severity: 'High', count: 5 },
+        { time: '11:00', logSourceIP: '192.168.1.2', sourceIP: '10.0.0.2', sourcePort: '4321', destinationIP: '8.8.8.8', destinationPort: '443', severity: 'Medium', count: 3 },
+        // Add more data as needed
+    ];
+
+    // Function to populate event details table
+    function populateEventDetailsTable(data) {
+        var tableBody = document.getElementById('eventTableBody');
+        tableBody.innerHTML = ''; // Clear previous data
+
+        data.forEach(function(event) {
+            var row = '<tr>' +
+                '<td class="text-center">' + event.time + '</td>' +
+                '<td class="text-center">' + event.logSourceIP + '</td>' +
+                '<td class="text-center">' + event.sourceIP + '</td>' +
+                '<td class="text-center">' + event.sourcePort + '</td>' +
+                '<td class="text-center">' + event.destinationIP + '</td>' +
+                '<td class="text-center">' + event.destinationPort + '</td>' +
+                '<td class="text-center">' + event.severity + '</td>' +
+                '<td class="text-center">' + event.count + '</td>' +
+                '</tr>';
+            tableBody.innerHTML += row;
+        });
+    }
+
+    // Initialize charts
+    var ctxSourceIP = document.getElementById('sourceIPChart').getContext('2d');
+    var sourceIPChart = new Chart(ctxSourceIP, {
+        type: 'bar',
+        data: sourceIPData,
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var ctxDestinationIP = document.getElementById('destinationIPChart').getContext('2d');
+    var destinationIPChart = new Chart(ctxDestinationIP, {
+        type: 'bar',
+        data: destinationIPData,
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    var ctxDestinationPort = document.getElementById('destinationPortChart').getContext('2d');
+    var destinationPortChart = new Chart(ctxDestinationPort, {
+        type: 'doughnut',
+        data: destinationPortData
+    });
+
+    // Populate initial event details table
+    populateEventDetailsTable(eventDetailsData);
+
+    // Function to handle table filtering based on search input
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        var searchValue = this.value.toLowerCase();
+        var filteredData = eventDetailsData.filter(function(event) {
+            return event.time.toLowerCase().includes(searchValue) ||
+                   event.logSourceIP.toLowerCase().includes(searchValue) ||
+                   event.sourceIP.toLowerCase().includes(searchValue) ||
+                   event.sourcePort.toLowerCase().includes(searchValue) ||
+                   event.destinationIP.toLowerCase().includes(searchValue) ||
+                   event.destinationPort.toLowerCase().includes(searchValue) ||
+                   event.severity.toLowerCase().includes(searchValue) ||
+                   event.count.toString().includes(searchValue);
+        });
+        populateEventDetailsTable(filteredData);
+    });
+</script>
+
+</body>
+</html>
